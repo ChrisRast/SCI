@@ -10,7 +10,7 @@ function buildHTMLDisplayResult(result) {
         li.append(cityCode)
         li.append(cityRegionName)
         li.appendTo($('.right > ul'))
-        console.log('city');  
+         
     }else if(result.role === "audio"){
         var title = $('<h2>').text(result.title)
         var filetype = $('<p>').text(result.fileformat)
@@ -25,13 +25,50 @@ function buildHTMLDisplayResult(result) {
         li.append(duration)
         li.append(author)
         li.appendTo($('.right > ul'))
-        console.log("cest audio");
-    }else{
         
-        console.log("ce'st pas fini");
-    }
-    
-    /*
+    }else if(result.role === "text"){
+        var title = $('<h2>').text(result.title)
+        var filetype = $('<p>').text(result.fileformat)
+        var filesize = $('<p>').text(result.filesize)
+        var id = $('<p>').text(result.id)
+        var author = $('<p>').text(result.author)
+        var kind = $('<p>').text(result.kind)
+        li.append(title)
+        li.append(filetype)
+        li.append(filesize)
+        li.append(id)
+        li.append(author)
+        li.append(kind)
+        li.appendTo($('.right > ul'))
+        
+    }else if(result.role === "image"){
+        var title = $('<h2>').text(result.title)
+        var filetype = $('<p>').text(result.fileformat)
+        var filesize = $('<p>').text(result.filesize)
+        var id = $('<p>').text(result.id)
+        var height = $('<p>').text(result.height)
+        var width = $('<p>').text(result.width)
+        li.append(title)
+        li.append(filetype)
+        li.append(filesize)
+        li.append(id)
+        li.append(height)
+        li.append(width)
+        li.appendTo($('.right > ul'))
+    }else if(result.role === "person"){
+        var lastName = $('<h2>').text(result.lastname)
+        var firstName = $('<p>').text(result.firstname)
+        var email = $('<p>').text(result.email)
+        var adress = $('<p>').text(result.adress)
+        var cityCode = $('<p>').text(result["city.code"])
+        var cityName = $('<p>').text(result["city.name"])
+        li.append(lastName)
+        li.append(firstName)
+        li.append(email)
+        li.append(adress)
+        li.append(cityCode)
+        li.append(cityName)
+        li.appendTo($('.right > ul'))
     }else if(result.role === "video"){
         var title = $('<h2>').text(result.title)
         var filetype = $('<p>').text(result.fileformat)
@@ -46,23 +83,10 @@ function buildHTMLDisplayResult(result) {
         li.append(duration)
         li.append(author)
         li.appendTo($('.right > ul'))
-        console.log("cest video");
-    
-    }else {console.log("chercher l'erreur")}/*
-        
-        /*
-        
-        if(result.role === "person"){
-    
-    }else if(result.role === "video"){
-    
-    }else if(result.role === "text"){
-    
-    }else if(result.role === "image"){
-    
+        console.log("video");
     }else{
         alert("there is a problem with your index!);
-    }*/
+    }
     
 /*
     switch(result.role){
