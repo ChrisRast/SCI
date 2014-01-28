@@ -6,27 +6,29 @@
     <link rel="stylesheet" media="screen" type="text/css" href="css/style.css" />
     <script type="text/javascript" src="js/jquery-2.1.0.js"></script>
     <script type="text/javascript" src="js/cam.js"></script>
+    
 </head>
 <body>
     
-    <header></header>
+    <header>
+        <h1>SCI, the Search CAM Interface</h1>
+    </header>
 
     <section class="left">
         <article>
-            <h1>SCI, the Search CAM Interface</h1>
-            <h2>For Apache Solr, by CAM</h2>
+            <h1>Global search</h1>
             <form id="globalSubmit">
-                <label for="globalSearch">Global Search :</label>
+                <label for="globalSearch">Complete :</label>
                 <input type="text" name="globalSearch" id="globalSearch" placeholder="Type any term of search">
                 <input type="submit" value="Search">
             </form>
         </article>
         <article>
             <!-- Remplir avec le javascript -->
-            <h2>Or use our advanced search</h2>
+            <h1>Or use our advanced search</h1>
             <form id="advancedSubmit">
                 <label for="role">Select a role :</label>
-                <select name="role">
+                <select id="role" name="role">
                     <option value="person">person</option>
                 </select>
                  <label for="region">Select a region :</label>
@@ -45,11 +47,12 @@
             </form>
         </article>
         <nav>
-            <h2>Navigation</h2>
+            <h1>Navigation</h1>
             <p>There is xxx results</p>
             <label for="display">Display</label>
-            <select name="display">
-                    <option value="display">0</option>
+            <select name="display" id="display">
+                <option value="display">0</option>
+                <option value="display">1</option>
             </select>
             <p>results per page</p>
             <input type="button" value="First page">
@@ -67,7 +70,9 @@
         </ul>
     </section>
 
-    <footer></footer>
+    <footer>
+        <p>Developped for Apache Solr, by CAM (Christophe Rast, Anne Grandjean and Miranda Martinet)</p>
+    </footer>
     
 </body>
 </html>
