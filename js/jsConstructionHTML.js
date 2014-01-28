@@ -83,7 +83,6 @@ function buildHTMLDisplayResult(result) {
         li.append(duration)
         li.append(author)
         li.appendTo($('.right > ul'))
-        console.log("video");
     }else{
         alert("there is a problem with your index!);
     }
