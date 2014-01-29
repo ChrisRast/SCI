@@ -4,6 +4,7 @@ $(function () {
 	getfacet('role');
 	hideSubFacet();
 	$('#role').on('change', changeFacet)
+    // $('#display').on('change', changeRow)
 	$('#role').on('endChangeFacet', function (event, field) {
 		if (field !== '') {
 			getSubfacet(field);
