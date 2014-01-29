@@ -1,0 +1,38 @@
+body {
+    background-color:#C0C0C0;
+    font-family:sans-serif;
+}
+
+.left{
+    float:left; 
+    width:50%;
+   
+}
+
+.right{
+    float:right;
+    width:50%;
+    
+}
+
+article, nav{
+    margin-top:5px;
+    margin-bottom:5px;
+    padding:5px;
+    background-color:white; 
+}
+
+.right > ul > li{
+    margin-top:5px;
+    margin-bottom:5px;
+    padding:5px;
+    background-color:white;
+}
+
+.right > ul > li > label{
+    float:left;
+}
+
+.right > ul > li > p{
+    align-items:flex-end;
+}
