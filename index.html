@@ -3,78 +3,84 @@
 <html>
 
 <head>
-    <title>Recherche multimédias</title>
-    <link rel="stylesheet" media="screen" type="text/css" href="css/style.css" />
-    <script type="text/javascript" src="js/jquery-2.1.0.js"></script>
-    <script type="text/javascript" src="js/cam.js"></script>
-    <script type="text/javascript" src="js/jsConstructionHTML.js"></script>
-    <script type="text/javascript" src="css/style.css"></script>
+	<title>Recherche multimédias</title>
+	<link rel="stylesheet" media="screen" type="text/css" href="css/style.css" />
+	<script type="text/javascript" src="js/jquery-2.1.0.js"></script>
+	<script type="text/javascript" src="js/cam.js"></script>
+	<script type="text/javascript" src="js/jsConstructionHTML.js"></script>
+	<script type="text/javascript" src="js/facet.js"></script>
 
 </head>
 
 <body>
 
-    <header>
-        <h1>SCI, the Search CAM Interface</h1>
-    </header>
+	<header>
+		<h1>SCI, the Search CAM Interface</h1>
+	</header>
 
-    <section class="left">
-        <article>
-            <h1>Global search</h1>
-            <form id="globalSubmit">
-                <label for="globalSearch">Complete :</label>
-                <input type="text" name="globalSearch" id="globalSearch" placeholder="Type any term of search">
-                <input type="submit" value="Search">
-            </form>
-        </article>
-        <article>
-            <!-- Remplir avec le javascript -->
-            <h1>Or use our advanced search</h1>
-            <form id="advancedSubmit">
-                <label for="role">Select a role :</label>
-                <select id="role" name="role">
-                    <option value="person">person</option>
-                </select>
-                <label for="region">Select a region :</label>
-                <select name="region">
-                    <option value="vd">vd</option>
-                </select>
-                <label for="birthday">Select a birthdate :</label>
-                <select name="birthday">
-                    <option value="1980-1984">1980 to 1984</option>
-                </select>
-                <label for="groupname">Select a groupname :</label>
-                <select name="groupname">
-                    <option value="cam">cam</option>
-                </select>
-                <input type="submit" value="Search">
-            </form>
-        </article>
-        <nav>
-            <h1>Navigation</h1>
-            <p>There is xxx results</p>
-            <label for="display">Display</label>
-            <select name="display" id="display">
-                <option value="display">0</option>
-                <option value="display">1</option>
-            </select>
-            <p>results per page</p>
-            <input type="button" value="First page">
-            <input type="button" value="Previous">
-            <label for="number">Go to page n°</label>
-            <input type="number" name="number" />
-            <input type="button" value="Next">
-            <input type="button" value="Last page">
-        </nav>
-    </section>
+	<section class="left">
+		<article>
+			<h1>Global search</h1>
+			<form id="globalSubmit">
+				<label for="globalSearch">Complete :</label>
+				<input type="text" name="globalSearch" id="globalSearch" placeholder="Type any term of search">
+				<input type="submit" value="Search">
+			</form>
+		</article>
+		<article>
+			<!-- Remplir avec le javascript -->
+			<h1>Or use our advanced search</h1>
+			<form id="advancedSubmit">
+				<label for="role">Select a role :</label>
+				<select id="role" name="role">
+					<option value="person">person</option>
+				</select>
+				<p class="city subfacet">
+					<label for="region">Select a region :</label>
+					<select name="region">
+						<option value="vd">vd</option>
+					</select>
+				</p>
+				<p class="person subfacet">
+					<label for="birthday">Select a birthdate :</label>
+					<select name="birthday">
+						<option value="1980-1984">1980 to 1984</option>
+					</select>
+				</p>
+				<p class="media subfacet">
+					<label for="groupname">Select a groupname :</label>
+					<select name="groupname">
+						<option value="cam">cam</option>
+					</select>
+				</p>
+				<input type="submit" value="Search">
+			</form>
+		</article>
+		<nav>
+			<h1>Navigation</h1>
+			<p>There is xxx results</p>
+			<label for="display">Display</label>
+			<select name="display" id="display">
+				<option value="display">0</option>
+				<option value="display">1</option>
+			</select>
+			<p>results per page</p>
+			<input type="button" value="First page">
+			<input type="button" value="Previous">
+			<label for="number">Go to page n°</label>
+			<input type="number" name="number" />
+			<input type="button" value="Next">
+			<input type="button" value="Last page">
+		</nav>
+	</section>
 
-    <section class="right">
-        <ul>
+	<section class="right">
+		<ul>
 
-        </ul>
-    </section>
+		</ul>
+	</section>
 
-    <!--<footer>
+	<!--<footer>
         <p>Developped for Apache Solr, by CAM (Christophe Rast, Anne Grandjean and Miranda Martinet)</p>
     </footer>-->
 
