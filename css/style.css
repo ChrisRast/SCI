@@ -27,7 +27,12 @@ footer{
     padding-top:10px;
 }
 
-article, nav{
+.left > nav > article >p{
+    display:inline-block;   
+}
+
+.left > article,
+.left > nav{
     margin-top:5px;
     margin-bottom:5px;
     padding-bottom:10px;
@@ -55,17 +60,21 @@ li{
     background-color:inherit;
 }
 
-.right > ul > li > label{
+.title > span{
+    display:inline;
+}
+
+.right > ul > li > div >label{
     margin-left:10px;
     float:left;
     display:inline;
 }
 
-.right > ul > li > p{
+.right > ul > li> .title > p{
     align-items:flex-end;
     margin-top:0px;
     margin-left:10px;
-    display:block;
+    display:inline-block;
 }
 #advancedSubmit > p {
 	display:inline-block;
@@ -80,4 +89,24 @@ li{
     text-transform:capitalize;
 }
 
+
+.right > ul > li > .title > label,
+.right > ul > li > .title > p:first-child{
+    display:inline-block;
+    float:right;
+    width:50%;
+}
+
+.right > ul > li > .title > label:first-child,
+.right > ul > li > .title > p{
+    display:inline-block;
+    float:left; 
+    width:auto;
+    align-items:flex-end;
+ 
+}
+
+.right >ul >li > .data{
+    clear:both;
+}
 
