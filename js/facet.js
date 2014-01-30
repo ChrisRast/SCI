@@ -14,7 +14,7 @@ function getfacet(field) {
 			case 'role':
 				select = $('#role')
 				break;
-			case 'person':
+			case 'language':
 				select = $('p.person select')
 				break;
 			case 'city.region.code':
@@ -26,7 +26,7 @@ function getfacet(field) {
 			}
 			select.empty();
 			select.append($('<option>').val('').text('Choose...'))
-			facets.forEach(function (e, i) {
+			facets.forEach(function (e) {
 				select.append($('<option>').val(e).text(e))
 			})
 
@@ -43,10 +43,6 @@ function getFacetsForField(json, field) {
 		}
 	})
 	return facet_field;
-}
-
-function hideSubFacet() {
-	$('p.subfacet').hide();
 }
 
 function changeFacet() {
@@ -77,6 +73,7 @@ function getSubfacet(field) {
 		field = 'city.region.code'
 		break;
 	case 'person':
+		field = 'language';
 		break;
 	default:
 		field = 'groupname'
