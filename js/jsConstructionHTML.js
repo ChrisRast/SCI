@@ -10,7 +10,6 @@ function buildHTMLDisplayResult(result) {
         var title = $('<div>').addClass('title').append(picto).append($('<label>').text("City's Name: ")).append(cityName)
         var data = $('<div>').addClass('data').append($('<label>').text("City's code: ")).append(cityCode)
             .append($('<label>').text("City Region's name: ")).append(cityRegionName)
-        var file = $('<div>').addClass('file')
         li.append(title).append(data)
             .appendTo(list)
 
@@ -31,8 +30,10 @@ function buildHTMLDisplayResult(result) {
             var author = $('<p>').text(result.author)
             data.append($('<label>').text("Author: ")).append(author)
         }
-        var file = $('<div>').addClass('file')
-        li.append(title).append(data)
+        var url = 'http://comem.trucmu.ch/mrm/medias/' + result.groupname + '/' + result.role + '/' + result.filename
+        var link = $('<a>').attr('href', url).text('Download this file')
+        var file = $('<div>').addClass('file').append(link)
+        li.append(title).append(data).append(file)
             .appendTo(list)
 
     } else if (result.role === "text") {
@@ -52,8 +53,10 @@ function buildHTMLDisplayResult(result) {
             var kind = $('<p>').text(result.kind)
             data.append($('<label>').text("Kind: ")).append(kind)
         }
-        var file = $('<div>').addClass('file')
-        li.append(title).append(data)
+        var url = 'http://comem.trucmu.ch/mrm/medias/' + result.groupname + '/' + result.role + '/' + result.filename
+        var link = $('<a>').attr('href', url).text('Download this file')
+        var file = $('<div>').addClass('file').append(link)
+        li.append(title).append(data).append(file)
         li.appendTo(list)
 
     } else if (result.role === "image") {
@@ -71,8 +74,10 @@ function buildHTMLDisplayResult(result) {
             .append($('<label>').text("ID: ")).append(id)
             .append($('<label>').text("Height: ")).append(height)
             .append($('<label>').text("width: ")).append(width)
-        var file = $('<div>').addClass('file')
-        li.append(title).append(data)
+        var url = 'http://comem.trucmu.ch/mrm/medias/' + result.groupname + '/' + result.role + '/' + result.filename
+        var link = $('<a>').attr('href', url).text('Download this file')
+        var file = $('<div>').addClass('file').append(link)
+        li.append(title).append(data).append(file)
         li.appendTo(list)
 
     } else if (result.role === "person") {
@@ -89,7 +94,6 @@ function buildHTMLDisplayResult(result) {
             .append($('<label>').text("Adress: ")).append(adress)
             .append($('<label>').text("City Name: ")).append(cityName)
             .append($('<label>').text("City code: ")).append(cityCode)
-        var file = $('<div>').addClass('file')
         li.append(title).append(data)
         li.appendTo(list)
 
@@ -114,8 +118,10 @@ function buildHTMLDisplayResult(result) {
             var author = $('<p>').text(result.author)
             data.append($('<label>').text("Author: ")).append(author)
         }
-        var file = $('<div>').addClass('file')
-        li.append(title).append(data)
+        var url = 'http://comem.trucmu.ch/mrm/medias/' + result.groupname + '/' + result.role + '/' + result.filename
+        var link = $('<a>').attr('href', url).text('Download this file')
+        var file = $('<div>').addClass('file').append(link)
+        li.append(title).append(data).append(file)
         li.appendTo(list)
 
     } else {
