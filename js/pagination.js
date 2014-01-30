@@ -4,7 +4,6 @@ function displayRow() {
     var displayValues = $('#display').val();
     console.log(displayValues);
     researchGlobal(displayValues);
-   
 }
 
 // affichage du nombre de résultats trouvés
@@ -30,20 +29,38 @@ function goToPage() {
 
 // Page précédente
 function previous() {
+    $("#previous").click(function () {
+        console.log('Page précédente !');
 
+    });
 }
 
 // Page suivante
 function next() {
+    $("#next").click(function () {
+        console.log('Page suivante !');
+        
+        // calcul le nombre restant de résultat à afficher
+        var calculEcart = numResults - displayValues;
+        // récupérer le start
+        
+    });
+
 
 }
 
 // 1ère page
 function firstPage() {
+    $("#firstPage").click(function () {
+        console.log('Vous êtes sur la première page !');
 
+    });
 }
 
 // Dernière page
 function lastPage() {
+    $("#lastPage").click(function () {
+        console.log('Vous êtes sur la dernière page !');
 
+    });
 }
