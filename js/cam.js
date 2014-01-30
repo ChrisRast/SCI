@@ -37,6 +37,7 @@ function researchGlobal() {
 		$.getJSON(url, request, function (json) {
 			var result = json.response.docs
 			console.log(result)
+            // pour chaque résultat, on lance la fonction qui générer le html
 			$.each(result, function (i, e) {
 				buildHTMLDisplayResult(e)
 			})
