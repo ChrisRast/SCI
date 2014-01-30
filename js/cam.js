@@ -47,6 +47,10 @@ function researchGlobal(rows) {
                 buildHTMLDisplayResult(e)
             })
             viewNumResults(json);
+            firstPage();
+            lastPage();
+            previous()
+            next();
         });
 
 
