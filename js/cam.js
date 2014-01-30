@@ -41,6 +41,8 @@ function researchGlobal(rows) {
             var result = json.response.docs
             console.log(result)
             // pour chaque résultat, on lance la fonction qui générer le html
+            $('.right > ul').empty();
+
             $.each(result, function (i, e) {
 
                 buildHTMLDisplayResult(e)
