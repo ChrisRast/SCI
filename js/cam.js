@@ -2,7 +2,7 @@ $(function () {
 	// submit de la recherche
 	$('#globalSubmit').submit(researchGlobal);
 	getfacet('role');
-	hideSubFacet();
+	$('p.subfacet').hide();
 	$('#role').on('change', changeFacet)
 	$('#role').on('endChangeFacet', function (event, field) {
 		if (field !== '') {
