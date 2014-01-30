@@ -1,41 +1,83 @@
 body {
-    background-color:#C0C0C0;
+    background-color:#F5F5DC;
     font-family:sans-serif;
 }
 
 .left{
     float:left; 
-    width:50%;
-   
+    width:49.5%;
 }
 
 .right{
     float:right;
-    width:50%;
-    
+    width:49.5%;
+    margin-top:0px;
+    padding:0px;
+    border-left-style:solid;
+    border-left-color:#A52A2A;
+    border-left-width:thin;
+}
+
+input{
+    background-color:#F5F5DC;
+}
+
+footer{
+    clear:both;
+    padding-top:10px;
 }
 
 article, nav{
     margin-top:5px;
     margin-bottom:5px;
-    padding:5px;
-    background-color:white; 
+    padding-bottom:10px;
+    border-bottom-style:solid;
+    border-bottom-color:#A52A2A;
+    border-bottom-width:thin;
+    background-color:inherit; 
+}
+
+li{
+    list-style:none;
+}
+
+.right > ul{
+    margin:0px;
+    padding:0px;
 }
 
 .right > ul > li{
     margin-top:5px;
     margin-bottom:5px;
-    padding:5px;
-    background-color:white;
+    border-bottom-style:solid;
+    border-bottom-color:#A52A2A;
+    border-bottom-width:thin;
+    background-color:inherit;
 }
 
 .right > ul > li > label{
+    margin-left:10px;
     float:left;
+    display:inline;
 }
 
 .right > ul > li > p{
     align-items:flex-end;
+    margin-top:0px;
+    margin-left:10px;
+    display:block;
 }
 #advancedSubmit > p {
 	display:inline-block;
+    margin:0px;
 }
+
+.subfacet{
+    margin-left:30px;
+}
+
+#advancedSubmit .city select{
+    text-transform:capitalize;
+}
+
+
