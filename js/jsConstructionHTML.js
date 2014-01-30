@@ -1,185 +1,117 @@
 function buildHTMLDisplayResult(result) {
-
+    var list = $('.right > ul')
     var li = $('<li>')
-    console.log(result)
-    if(result.role === "city"){
+    if (result.role === "city") {
         var cityName = $('<p>').text(result["city.name"])
         var cityCode = $('<p>').text(result["city.code"])
         var cityRegionName = $('<p>').text(result["ity.region.name"])
-        li.append($('<label>').text("City's Name: ")).append(cityName)
-        li.append($('<label>').text("City's code: ")).append(cityCode)
-        li.append($('<label>').text("City Region's name: ")).append(cityRegionName)
-        li.appendTo($('.right > ul'))
-         
-    }else if(result.role === "audio"){
+        var title = $('<div>').addClass('title').append($('<label>').text("City's Name: ")).append(cityName)
+        var data = $('<div>').addClass('data').append($('<label>').text("City's code: ")).append(cityCode)
+            .append($('<label>').text("City Region's name: ")).append(cityRegionName)
+        var file = $('<div>').addClass('file')
+        li.append(title).append(data)
+            .appendTo(list)
+
+    } else if (result.role === "audio") {
         var title = $('<p>').text(result.title)
         var filetype = $('<p>').text(result.fileformat)
         var filesize = $('<p>').text(result.filesize)
         var id = $('<p>').text(result.id)
         var duration = $('<p>').text(result.duration)
-        var author = $('<p>').text(result.author)
-       li.append($('<label>').text("Title: ")).append(title)
-        li.append($('<label>').text("Type of file: ")).append(filetype)
-        li.append($('<label>').text("Seize of file: ")).append(filesize)
-        li.append($('<label>').text("ID: ")).append(id)
-        li.append($('<label>').text("Time of thevideo: ")).append(duration)
-        li.append($('<label>').text("Author: ")).append(author)
-        li.appendTo($('.right > ul'))
-        
-    }else if(result.role === "text"){
+        var title = $('<div>').addClass('title').append($('<label>').text("Title: ")).append(title)
+            .append($('<label>').text("Type of file: ")).append(filetype)
+        var data = $('<div>').addClass('data')
+            .append($('<label>').text("Size of file: ")).append(filesize)
+            .append($('<label>').text("ID: ")).append(id)
+            .append($('<label>').text("Time of the video: ")).append(duration)
+        if (result.author) {
+            var author = $('<p>').text(result.author)
+            data.append($('<label>').text("Author: ")).append(author)
+        }
+        var file = $('<div>').addClass('file')
+        li.append(title).append(data)
+            .appendTo(list)
+
+    } else if (result.role === "text") {
         var title = $('<p>').text(result.title)
         var filetype = $('<p>').text(result.fileformat)
         var filesize = $('<p>').text(result.filesize)
         var id = $('<p>').text(result.id)
-        var author = $('<p>').text(result.author)
-        var kind = $('<p>').text(result.kind)
-        li.append($('<label>').text("Title: ")).append(title)
-        li.append($('<label>').text("Type of file: ")).append(filetype)
-        li.append($('<label>').text("Seize of file: ")).append(filesize)
-        li.append($('<label>').text("ID: ")).append(id)
-        li.append($('<label>').text("Author: ")).append(author)
-        li.append($('<label>').text("Kind: ")).append(kind)
-        li.appendTo($('.right > ul'))
-        
-    }else if(result.role === "image"){
+        var title = $('<div>').addClass('title').append($('<label>').text("Title: ")).append(title)
+            .append($('<label>').text("Type of file: ")).append(filetype)
+        var data = $('<div>').addClass('data').append($('<label>').text("Size of file: ")).append(filesize)
+            .append($('<label>').text("ID: ")).append(id)
+        if (result.author) {
+            var author = $('<p>').text(result.author)
+            data.append($('<label>').text("Author: ")).append(author)
+        } else if (result.kind) {
+            var kind = $('<p>').text(result.kind)
+            data.append($('<label>').text("Kind: ")).append(kind)
+        }
+        var file = $('<div>').addClass('file')
+        li.append(title).append(data)
+        li.appendTo(list)
+
+    } else if (result.role === "image") {
         var title = $('<p>').text(result.title)
         var filetype = $('<p>').text(result.fileformat)
         var filesize = $('<p>').text(result.filesize)
         var id = $('<p>').text(result.id)
         var height = $('<p>').text(result.height)
         var width = $('<p>').text(result.width)
-        li.append($('<label>').text("Title: ")).append(title)
-        li.append($('<label>').text("Type of file: ")).append(filetype)
-        li.append($('<label>').text("Seize of file: ")).append(filesize)
-        li.append($('<label>').text("ID: ")).append(id)
-        li.append($('<label>').text("Height: ")).append(height)
-        li.append($('<label>').text("width: ")).append(width)
-        li.appendTo($('.right > ul'))
-    }else if(result.role === "person"){
+        var title = $('<div>').addClass('title').append($('<label>').text("Title: ")).append(title)
+            .append($('<label>').text("Type of file: ")).append(filetype)
+        var data = $('<div>').addClass('data').append($('<label>').text("Size of file: ")).append(filesize)
+            .append($('<label>').text("ID: ")).append(id)
+            .append($('<label>').text("Height: ")).append(height)
+            .append($('<label>').text("width: ")).append(width)
+        var file = $('<div>').addClass('file')
+        li.append(title).append(data)
+        li.appendTo(list)
+
+    } else if (result.role === "person") {
         var lastName = $('<p>').text(result.lastname)
         var firstName = $('<p>').text(result.firstname)
         var email = $('<p>').text(result.email)
         var adress = $('<p>').text(result.adress)
         var cityCode = $('<p>').text(result["city.code"])
         var cityName = $('<p>').text(result["city.name"])
-        li.append($('<label>').text("Lastname: ")).append(lastName)
-        li.append($('<label>').text("Firstname: ")).append(firstName)
-        li.append($('<label>').text("email: ")).append(email)
-        li.append($('<label>').text("Adress: ")).append(adress)
-        li.append($('<label>').text("City's Name: ")).append(cityName)
-        li.append($('<label>').text("City's code: ")).append(cityCode)
-        li.appendTo($('.right > ul'))
-    }else if(result.role === "video"){
-        var title = $('<p>').text(result.title)
-        var filetype = $('<p>').text(result.fileformat)
-        var filesize = $('<p>').text(result.filesize)
-        var id = $('<p>').text(result.id)
-        var duration = $('<p>').text(result.duration)
-        var author = $('<p>').text(result.author)
-        li.append($('<label>').text("Title: ")).append(title)
-        li.append($('<label>').text("Type of file: ")).append(filetype)
-        li.append($('<label>').text("Seize of file: ")).append(filesize)
-        li.append($('<label>').text("ID: ")).append(id)
-        li.append($('<label>').text("Time of thevideo: ")).append(duration)
-        li.append($('<label>').text("Author: ")).append(author)
-        li.appendTo($('.right > ul'))
-    }else{
-        var nullSearch = $('<h2>').text("There is no file about your search")
-        li.append(nullSearch)
-        li.appendTo($('.right > ul'))
-    }
-    
-/*
-    switch(result.role){
-    case 'city':
-        var cityName = $('<h2>').text(result["city.name"])
-        var cityCode = $('<p>').text(result["city.code"])
-        var cityRegionName = $('<p>').text["result.city.region.name"])
-        li.append(cityName)
-        li.append(cityCode)
-        li.append(cityRegionName)
-        li.appendTo($('.right > ul'))
-        console.log('city');
-        break;
-    case "person":
-        var lastName = $('<h2>').text(result.lastname)
-        var firstName = $('<p>').text(result.firstname)
-        var email = $('<p>').text(result.email)
-        var adress = $('<p>').text(result.adress)
-        var cityCode = $('<p>').text(result["city.code"])
-        var cityName = $('<p>').text(result["city.name"])
-        li.append(lastName)
-        li.append(firstName)
-        li.append(email)
-        li.append(adress)
-        li.append(cityCode)
-        li.append(cityName)
-        li.appendTo($('.right > ul'))
-        break;
-    case "audio":
-        var title = $('<h2>').text(result.title)
-        var filetype = $('<p>').text(result.fileformat)
-        var filesize = $('<p>').text(result.filesize)
-        var id = $('<p>').text(result.id)
-        var duration = $('<p>').text(result.duration)
-        var author = $('<p>').text(result.author)
-        li.append(title)
-        li.append(filetype)
-        li.append(filesize)
-        li.append(id)
-        li.append(duration)
-        li.append(author)
-        li.appendTo($('.right > ul'))
-        break;
-    case "video":
-        var title = $('<h2>').text(result.title)
-        var filetype = $('<p>').text(result.fileformat)
-        var filesize = $('<p>').text(result.filesize)
-        var id = $('<p>').text(result.id)
-        var duration = $('<p>').text(result.duration)
-        var author = $('<p>').text(result.author)
-        li.append(title)
-        li.append(filetype)
-        li.append(filesize)
-        li.append(id)
-        li.append(duration)
-        li.append(author)
-        li.appendTo($('.right > ul'))
-        break;
-    case "text":
-        var title = $('<h2>').text(result.title)
-        var filetype = $('<p>').text(result.fileformat)
-        var filesize = $('<p>').text(result.filesize)
-        var id = $('<p>').text(result.id)
-        var author = $('<p>').text(result.author)
-        var kind = $('<p>').text(result.kind)
-        li.append(title)
-        li.append(filetype)
-        li.append(filesize)
-        li.append(id)
-        li.append(author)
-        li.append(kind)
-        li.appendTo($('.right > ul'))
-        break;
-    case "image":
-        var title = $('<h2>').text(result.title)
-        var filetype = $('<p>').text(result.fileformat)
-        var filesize = $('<p>').text(result.filesize)
-        var id = $('<p>').text(result.id)
-        var height = $('<p>').text(result.height)
-        var width = $('<p>').text(result.width)
-        li.append(title)
-        li.append(filetype)
-        li.append(filesize)
-        li.append(id)
-        li.append(height)
-        li.append(width)
-        li.appendTo($('.right > ul'))
-        break;
+        var title = $('<div>').addClass('title').append($('<label>').text("Lastname: ")).append(lastName)
+            .append($('<label>').text("Firstname: ")).append(firstName)
+        var data = $('<div>').addClass('data').append($('<label>').text("email: ")).append(email)
+            .append($('<label>').text("Adress: ")).append(adress)
+            .append($('<label>').text("City Name: ")).append(cityName)
+            .append($('<label>').text("City code: ")).append(cityCode)
+        var file = $('<div>').addClass('file')
+        li.append(title).append(data)
+        li.appendTo(list)
 
-    default:
+    } else if (result.role === "video") {
+        var title = $('<p>')
+        if (result.title) {
+            title.text(result.title)
+        } else {
+            title.text(result.id);
+        }
+        var filetype = $('<p>').text(result.fileformat)
+        var filesize = $('<p>').text(result.filesize)
         var id = $('<p>').text(result.id)
-        li.append(id)
-        li.appendTo($('.right > ul'))
-    }*/
+        var duration = $('<p>').text(result.duration)
+        var title = $('<div>').addClass('title').append($('<label>').text("Title: ")).append(title)
+            .append($('<label>').text("Type of file: ")).append(filetype)
+        var data = $('<div>').addClass('data').append($('<label>').text("Size of file: ")).append(filesize)
+            .append($('<label>').text("ID: ")).append(id)
+            .append($('<label>').text("Time of the video: ")).append(duration)
+        if (result.author) {
+            var author = $('<p>').text(result.author)
+            data.append($('<label>').text("Author: ")).append(author)
+        }
+        var file = $('<div>').addClass('file')
+        li.append(title).append(data)
+        li.appendTo(list)
+
+    } else {
+        var nullSearch = $('<h2>').text("There is no file about your search")
+        li.append(nullSearch).appendTo(list)
+    }
 }
