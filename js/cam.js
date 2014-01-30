@@ -1,6 +1,7 @@
 $(function () {
     // submit de la recherche
-    $('#globalSubmit').submit(function () {
+    $('#globalSubmit').submit(function (event) {
+        event.preventDefault();
         var rows = $('#display').val()
         researchGlobal(rows)
     });
@@ -16,8 +17,6 @@ $(function () {
 })
 
 function researchGlobal(rows) {
-
-    event.preventDefault();
 
     // récupère la valeur entrée dans l'input de recherche par exemple : person
     var valueField = $('#globalSearch').val();
@@ -52,4 +51,5 @@ function researchGlobal(rows) {
 
 
     }
+
 }
