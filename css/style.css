@@ -36,3 +36,6 @@ article, nav{
 .right > ul > li > p{
     align-items:flex-end;
 }
+#advancedSubmit > p {
+	display:inline-block;
+}
