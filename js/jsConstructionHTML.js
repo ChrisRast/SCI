@@ -5,7 +5,7 @@ function buildHTMLDisplayResult(result) {
     if (result.role === "city") {
         var cityName = $('<p>').text(result["city.name"])
         var cityCode = $('<p>').text(result["city.code"])
-        var cityRegionName = $('<p>').text(result["ity.region.name"])
+        var cityRegionName = $('<p>').text(result["city.region.name"])
         picto.attr('src', 'img/pictos/' + result.role + ".gif")
         var title = $('<div>').addClass('title').append(picto).append($('<label>').text("City's Name: ")).append(cityName)
         var data = $('<div>').addClass('data').append($('<label>').text("City's code: ")).append(cityCode)

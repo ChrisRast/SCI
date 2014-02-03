@@ -3,7 +3,7 @@ function displayRow() {
     // sélection de la valeur de l'option du select
     var displayValues = $('#display').val();
     console.log(displayValues);
-    researchGlobal(displayValues);
+    researchGlobal('0', displayValues);
 }
 
 // affichage du nombre de résultats trouvés
@@ -27,11 +27,11 @@ function goToPage() {
     var numFound = displayRow;
     // récupérer le nombre total de résultat
     var rows = viewNumResults;
-    
+
     // dès que le numéro de page désiré est tapé, cette page s'affiche automatiquement
     $('#goPage').keyup(function () {
         var goToPage = $('#goPage').text;
-        
+
         // comment afficher la page correspondante ?
         // faire modulo numFound / rows comme ci-dessous ?
         // var modulo = numFound % rows; ?!
@@ -51,7 +51,7 @@ function previous() {
 function next() {
     $('#next').click(function () {
         console.log('Page suivante !');
-        
+
         // aimerait avoir le résultat de ces fonctions...
         var result = viewNumResults;
         var display = displayRow;
