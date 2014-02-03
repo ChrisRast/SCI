@@ -62,7 +62,7 @@
         <nav>
             <h1>Navigation</h1>
             <article class="left displayNbResult">
-                <p class="numResults"></p>
+                <p class="numResults">There are no result to display</p>
             </article>
             <article class="right defineNbResult">
                 <label for="display">Display</label>
@@ -76,9 +76,9 @@
             <article class="clear pageNav">
                 <input id="firstPage" type="button" value="First page">
                 <input id="previous" type="button" value="Previous">
-                <label for="number">Go to page</label>
-                <input id="goPage" type="number" name="number" />
-                <p class="nbPages"></p>
+                <label for="goPage">Go to page</label>
+                <select id="goPage"></select>
+                <p class="nbPages">/--</p>
                 <input id="next" type="button" value="Next">
                 <input id="lastPage" type="button" value="Last page">
             </article>

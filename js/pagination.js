@@ -2,7 +2,6 @@
 function displayRow() {
     // sélection de la valeur de l'option du select
     var displayValues = $('#display').val();
-    console.log(displayValues);
     researchGlobal('0', displayValues);
 }
 
@@ -21,22 +20,30 @@ function viewNumResults(json) {
     }
 }
 
+function displayNbPages(json) {
+    var numResults = json.response.numFound;
+    var start = json.response.start;
+    var displayValues = $('#display').val();
+    var nbPages = Math.ceil(numResults / displayValues)
+    $('.nbPages').text('/' + nbPages)
+    $('#goPage').empty();
+    for (var i = 0; i < nbPages; i++) {
+        if ((start / displayValues) == i) {
+            $('#goPage').append($('<option>').val(i).text(i + 1).attr('selected', true))
+        } else {
+            $('#goPage').append($('<option>').val(i).text(i + 1))
+        }
+    }
+}
 // Redirection vers la page désirée d'après le numéro entré
 function goToPage() {
-    // récupérer le nombre de résultat par page
-    var numFound = displayRow;
-    // récupérer le nombre total de résultat
-    var rows = viewNumResults;
+    // récupérer le nombre de résultat affichés par page
+    var displayValues = $('#display').val();
+    // récupère la page voulue
+    var pageToGo = $('#goPage').val();
 
-    // dès que le numéro de page désiré est tapé, cette page s'affiche automatiquement
-    $('#goPage').keyup(function () {
-        var goToPage = $('#goPage').text;
-
-        // comment afficher la page correspondante ?
-        // faire modulo numFound / rows comme ci-dessous ?
-        // var modulo = numFound % rows; ?!
-        // console.log(modulo);
-    });
+    var start = displayValues * pageToGo;
+    researchGlobal(start, displayValues)
 }
 
 // Page précédente

@@ -16,52 +16,37 @@ $(function () {
     })
     toggleSearch();
     $('.advancedSearch').on('click', 'h1', toggleSearch);
-
-
+    $('#goPage').on('change', goToPage)
 })
 
 function researchGlobal(start, rows) {
-
     // récupère la valeur entrée dans l'input de recherche par exemple : person
     var valueField = $('#globalSearch').val();
-
     // test si le champ est rempli
     if (valueField == '') {
-        alert('Please enter a word!');
+        return
     } else {
         // variable de l'url et de la requête
         var url = "http://localhost:8983/solr/select";
         var request = {};
-
         // les paramètres de l'objet request{}
         request['q'] = 'global:' + valueField;
         request['sort'] = 'id asc'; // a voir après 
         request['start'] = start;
         request['rows'] = rows;
         request['wt'] = 'json';
-
         // la requête JSON dans global
         $.getJSON(url, request, function (json) {
             var result = json.response.docs
-            console.log(result)
             // pour chaque résultat, on lance la fonction qui générer le html
             $('.right > ul').empty();
-
             $.each(result, function (i, e) {
-
-                buildHTMLDisplayResult(e)
+                buildHTMLDisplayResult(e);
             })
             viewNumResults(json);
-            firstPage();
-            lastPage();
-            previous()
-            next();
-            //goToPage();
+            displayNbPages(json)
         });
-
-
     }
-
 }
 
 function toggleSearch() {
