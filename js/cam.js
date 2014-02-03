@@ -3,7 +3,7 @@ $(function () {
     $('#globalSubmit').submit(function (event) {
         event.preventDefault();
         var rows = $('#display').val()
-        researchGlobal(rows)
+        researchGlobal('0', rows)
     });
     getfacet('role');
     $('p.subfacet').hide();
@@ -14,16 +14,20 @@ $(function () {
             getSubfacet(field);
         }
     })
+    toggleSearch();
+    $('.advancedSearch').on('click', 'h1', toggleSearch);
+
+
 })
 
-function researchGlobal(rows) {
+function researchGlobal(start, rows) {
 
     // récupère la valeur entrée dans l'input de recherche par exemple : person
     var valueField = $('#globalSearch').val();
 
     // test si le champ est rempli
     if (valueField == '') {
-        alert('Please field the text area !');
+        alert('Please enter a word!');
     } else {
         // variable de l'url et de la requête
         var url = "http://localhost:8983/solr/select";
@@ -32,6 +36,7 @@ function researchGlobal(rows) {
         // les paramètres de l'objet request{}
         request['q'] = 'global:' + valueField;
         request['sort'] = 'id asc'; // a voir après 
+        request['start'] = start;
         request['rows'] = rows;
         request['wt'] = 'json';
 
@@ -57,4 +62,13 @@ function researchGlobal(rows) {
 
     }
 
+}
+
+function toggleSearch() {
+    $('#advancedSubmit').toggle();
+    if ($('.advancedSearch > h1').hasClass('arrowdown')) {
+        $('.advancedSearch > h1').removeClass().addClass('arrowup');
+    } else {
+        $('.advancedSearch > h1').removeClass().addClass('arrowdown');
+    }
 }

@@ -110,3 +110,16 @@ li{
     clear:both;
 }
 
+
+h1.arrowdown {
+    background-image:url("../img/icon_16958.png");
+    background-position:right;
+    background-size:contain;
+    background-repeat:no-repeat;
+}
+h1.arrowup {
+    background-image:url(../img/icon_16981.png);
+    background-position:right;
+    background-size:contain;
+    background-repeat:no-repeat;
+}

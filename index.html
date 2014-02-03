@@ -20,7 +20,7 @@
     </header>
 
     <section class="left">
-        <article>
+        <article class="gloablSearch">
             <h1>Global search</h1>
             <form id="globalSubmit">
                 <label for="globalSearch">Complete :</label>
@@ -28,7 +28,7 @@
                 <input type="submit" value="Search">
             </form>
         </article>
-        <article>
+        <article class="advancedSearch">
             <!-- Remplir avec le javascript -->
             <h1>Or use our advanced search</h1>
             <form id="advancedSubmit">
@@ -45,9 +45,9 @@
                     </select>
                 </p>
                 <p class="person subfacet">
-                    <label for="birthday">Select a birthdate :</label>
-                    <select name="birthday">
-                        <option value="1980-1984">1980 to 1984</option>
+                    <label for="language">Select a language :</label>
+                    <select name="language">
+                        <option value="French">French</option>
                     </select>
                 </p>
                 <p class="media subfacet">
@@ -72,7 +72,7 @@
                 <p>results per page</p>
             </article>
             <input id="firstPage" type="button" value="First page">
-            <input id="previous"type="button" value="Previous">
+            <input id="previous" type="button" value="Previous">
             <label for="number">Go to page n°</label>
             <input id="goPage" type="number" name="number" />
             <input id="next" type="button" value="Next">
