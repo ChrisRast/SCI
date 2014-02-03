@@ -21,15 +21,27 @@ function viewNumResults(json) {
     }
 }
 
-// Redirection vers la page désirée
+// Redirection vers la page désirée d'après le numéro entré
 function goToPage() {
-    // Go to page n° -> faire modulo numFound / rows
-
+    // récupérer le nombre de résultat par page
+    var numFound = displayRow;
+    // récupérer le nombre total de résultat
+    var rows = viewNumResults;
+    
+    // dès que le numéro de page désiré est tapé, cette page s'affiche automatiquement
+    $('#goPage').keyup(function () {
+        var goToPage = $('#goPage').text;
+        
+        // comment afficher la page correspondante ?
+        // faire modulo numFound / rows comme ci-dessous ?
+        // var modulo = numFound % rows; ?!
+        // console.log(modulo);
+    });
 }
 
 // Page précédente
 function previous() {
-    $("#previous").click(function () {
+    $('#previous').click(function () {
         console.log('Page précédente !');
 
     });
@@ -37,21 +49,23 @@ function previous() {
 
 // Page suivante
 function next() {
-    $("#next").click(function () {
+    $('#next').click(function () {
         console.log('Page suivante !');
         
+        // aimerait avoir le résultat de ces fonctions...
+        var result = viewNumResults;
+        var display = displayRow;
         // calcul le nombre restant de résultat à afficher
-        var calculEcart = numResults - displayValues;
+        var calculEcart = result - display;
         // récupérer le start
-        
+        console.log(calculEcart);
+
     });
-
-
 }
 
 // 1ère page
 function firstPage() {
-    $("#firstPage").click(function () {
+    $('#firstPage').click(function () {
         console.log('Vous êtes sur la première page !');
 
     });
@@ -59,7 +73,7 @@ function firstPage() {
 
 // Dernière page
 function lastPage() {
-    $("#lastPage").click(function () {
+    $('#lastPage').click(function () {
         console.log('Vous êtes sur la dernière page !');
 
     });

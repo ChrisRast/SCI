@@ -51,6 +51,7 @@ function researchGlobal(rows) {
             lastPage();
             previous()
             next();
+            //goToPage();
         });
 
 
