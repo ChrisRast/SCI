@@ -1,5 +1,5 @@
 function buildHTMLDisplayResult(result) {
-    var list = $('.right > ul')
+    var list = $('.result > ul')
     var li = $('<li>')
     var picto = $('<img>').addClass('picto')
     if (result.role === "city") {

@@ -19,7 +19,7 @@
         <h1>SCI, the Search CAM Interface</h1>
     </header>
 
-    <section class="left">
+    <section class="search left">
         <article class="gloablSearch">
             <h1>Global search</h1>
             <form id="globalSubmit">
@@ -61,8 +61,10 @@
         </article>
         <nav>
             <h1>Navigation</h1>
-            <p class="numResults"></p>
-            <article>
+            <article class="left displayNbResult">
+                <p class="numResults"></p>
+            </article>
+            <article class="right defineNbResult">
                 <label for="display">Display</label>
                 <select id="display">
                     <option>5</option>
@@ -71,16 +73,19 @@
                 </select>
                 <p>results per page</p>
             </article>
-            <input id="firstPage" type="button" value="First page">
-            <input id="previous" type="button" value="Previous">
-            <label for="number">Go to page n°</label>
-            <input id="goPage" type="number" name="number" />
-            <input id="next" type="button" value="Next">
-            <input id="lastPage" type="button" value="Last page">
+            <article class="clear pageNav">
+                <input id="firstPage" type="button" value="First page">
+                <input id="previous" type="button" value="Previous">
+                <label for="number">Go to page</label>
+                <input id="goPage" type="number" name="number" />
+                <p class="nbPages"></p>
+                <input id="next" type="button" value="Next">
+                <input id="lastPage" type="button" value="Last page">
+            </article>
         </nav>
     </section>
 
-    <section class="right">
+    <section class="result right">
         <ul>
 
         </ul>

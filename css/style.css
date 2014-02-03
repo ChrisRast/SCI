@@ -1,125 +1,114 @@
 body {
-    background-color:#F5F5DC;
-    font-family:sans-serif;
+    background-color: #F5F5DC;
+    font-family: sans-serif;
 }
-
-.left{
-    float:left; 
-    width:49.5%;
+.search {
+    width: 49.5%;
 }
-
-.right{
-    float:right;
-    width:49.5%;
-    margin-top:0px;
-    padding:0px;
-    border-left-style:solid;
-    border-left-color:#A52A2A;
-    border-left-width:thin;
+.result {
+    width: 49.5%;
+    margin-top: 0px;
+    padding: 0px;
+    border-left-style: solid;
+    border-left-color: #A52A2A;
+    border-left-width: thin;
 }
-
-input{
-    background-color:#F5F5DC;
+input {
+    background-color: #F5F5DC;
 }
-
-footer{
-    clear:both;
-    padding-top:10px;
+footer {
+    clear: both;
+    padding-top: 10px;
 }
-
-.left > nav > article >p{
-    display:inline-block;   
+.search > nav > article >p {
+    display: inline-block;
 }
-
-.left > article,
-.left > nav{
-    margin-top:5px;
-    margin-bottom:5px;
-    padding-bottom:10px;
-    border-bottom-style:solid;
-    border-bottom-color:#A52A2A;
-    border-bottom-width:thin;
-    background-color:inherit; 
+.search > article,
+.search > nav {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding-bottom: 10px;
+    border-bottom-style: solid;
+    border-bottom-color: #A52A2A;
+    border-bottom-width: thin;
+    background-color: inherit;
 }
-
-li{
-    list-style:none;
+li {
+    list-style: none;
 }
-
-.right > ul{
-    margin:0px;
-    padding:0px;
+.result > ul {
+    margin: 0px;
+    padding: 0px;
 }
-
-.right > ul > li{
-    margin-top:5px;
-    margin-bottom:5px;
-    border-bottom-style:solid;
-    border-bottom-color:#A52A2A;
-    border-bottom-width:thin;
-    background-color:inherit;
+.result > ul > li {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-bottom-style: solid;
+    border-bottom-color: #A52A2A;
+    border-bottom-width: thin;
+    background-color: inherit;
 }
-
-.title > span{
-    display:inline;
+.title > span {
+    display: inline;
 }
-
-.right > ul > li > div >label{
-    margin-left:10px;
-    float:left;
-    display:inline;
+.result > ul > li > div >label {
+    margin-left: 10px;
+    float: left;
+    display: inline;
 }
-
-.right > ul > li> .title > p{
-    align-items:flex-end;
-    margin-top:0px;
-    margin-left:10px;
-    display:inline-block;
+.result > ul > li> .title > p {
+    align-items: flex-end;
+    margin-top: 0px;
+    margin-left: 10px;
+    display: inline-block;
 }
 #advancedSubmit > p {
-	display:inline-block;
-    margin:0px;
+    display: inline-block;
+    margin: 0px;
 }
-
-.subfacet{
-    margin-left:30px;
+.subfacet {
+    margin-left: 30px;
 }
-
-#advancedSubmit .city select{
-    text-transform:capitalize;
+#advancedSubmit .city select {
+    text-transform: capitalize;
 }
-
-
-.right > ul > li > .title > label,
-.right > ul > li > .title > p:first-child{
-    display:inline-block;
-    float:right;
-    width:50%;
+.result > ul > li > .title > label,
+.result > ul > li > .title > p:first-child {
+    display: inline-block;
+    float: right;
+    width: 50%;
 }
-
-.right > ul > li > .title > label:first-child,
-.right > ul > li > .title > p{
-    display:inline-block;
-    float:left; 
-    width:auto;
-    align-items:flex-end;
- 
+.result > ul > li > .title > label:first-child,
+.result > ul > li > .title > p {
+    display: inline-block;
+    float: left;
+    width: auto;
+    align-items: flex-end;
 }
-
-.right >ul >li > .data{
-    clear:both;
+.result >ul >li > .data {
+    clear: both;
 }
-
-
+.advancedSearch h1 {
+    cursor: pointer;
+}
 h1.arrowdown {
-    background-image:url("../img/icon_16958.png");
-    background-position:right;
-    background-size:contain;
-    background-repeat:no-repeat;
+    background-image: url("../img/icon_16958.png");
+    background-position: right;
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 h1.arrowup {
-    background-image:url(../img/icon_16981.png);
-    background-position:right;
-    background-size:contain;
-    background-repeat:no-repeat;
+    background-image: url(../img/icon_16981.png);
+    background-position: right;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.right {
+    float: right;
+}
+.left {
+    float: left;
+}
+.clear {
+    clear: both;
 }
