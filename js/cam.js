@@ -1,6 +1,6 @@
 $(function () {
     // submit de la recherche
-    $('#globalSubmit').submit(function (event) {
+    $('#globalSubmit, #advancedSubmit').submit(function (event) {
         event.preventDefault();
         var rows = $('#display').val()
         researchGlobal('0', rows)
@@ -30,11 +30,20 @@ function researchGlobal(start, rows) {
         var url = "http://localhost:8983/solr/select";
         var request = {};
         // les paramètres de l'objet request{}
-        request['q'] = 'global:' + valueField;
         request['sort'] = 'id asc'; // a voir après 
         request['start'] = start;
         request['rows'] = rows;
         request['wt'] = 'json';
+        if ($('h1.arrowup') && ($('#role').val() !== '')) {
+            var visible = $('.subfacet select:visible')
+            if (visible.val() !== '') {
+                request['q'] = '+global:' + valueField + ' +role:' + $('#role').val() + ' +' + visible.attr('name') + ':' + visible.val();
+            } else {
+                request['q'] = '+global:' + valueField + ' +role:' + $('#role').val();
+            }
+        } else {
+            request['q'] = '+global:' + valueField;
+        }
         // la requête JSON dans global
         $.getJSON(url, request, function (json) {
             var result = json.response.docs
