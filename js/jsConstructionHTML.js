@@ -7,9 +7,9 @@ function buildHTMLDisplayResult(result) {
         var cityCode = $('<p>').text(result["city.code"])
         var cityRegionName = $('<p>').text(result["city.region.name"])
         picto.attr('src', 'img/pictos/' + result.role + ".gif")
-        var title = $('<div>').addClass('title').append(picto).append($('<label>').text("City's Name: ")).append(cityName)
-        var data = $('<div>').addClass('data').append($('<label>').text("City's code: ")).append(cityCode)
-            .append($('<label>').text("City Region's name: ")).append(cityRegionName)
+        var title = $('<div>').addClass('title').append(picto).append($('<label>').text("Name: ")).append(cityName)
+        var data = $('<div>').addClass('data').append($('<label>').text("City code: ")).append(cityCode)
+            .append($('<label>').text("City region: ")).append(cityRegionName)
         li.append(title).append(data)
             .appendTo(list)
 
