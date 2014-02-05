@@ -1,6 +1,10 @@
 body {
-    background-color: #F0F0F0;
+    background-color: #e5e5e5;
     font-family: sans-serif;
+    color: #1d1d1d;
+}
+p {
+    margin: 0;
 }
 .search {
     width: 49.5%;
@@ -13,7 +17,7 @@ body {
 input {
     background-color: white;
     border: 1px solid #808080;
-    width: 120px;
+    padding: 0;
 }
 select {
     background-color: white;
@@ -26,18 +30,29 @@ footer {
 .search > nav > article >p {
     display: inline-block;
 }
+.search > nav > article.pageNav > p {
+  display: block;
+  margin-bottom: 20px;
+  width: 100%;
+}
 .search > article,
 .search > nav {
     margin-top: 1%;
     margin-bottom: 1%;
-    padding-bottom: 3%;
     border-bottom-style: solid;
-    border-bottom-color: #707070;
+    border-bottom-color: #808080;
     border-bottom-width: 2px;
     background-color: inherit;
 }
+.search > nav {
+    padding-bottom: 20px;
+}
+.search > article > form {
+    margin-bottom: 20px;
+}
 #globalSearch {
-    width: calc(100% - 209px);
+    padding: 1px;
+    width: calc(100% - 129px);
 }
 li {
     list-style: none;
@@ -51,10 +66,10 @@ li {
     margin-bottom: 1%;
     height: auto;
     border-bottom-style: solid;
-    border-bottom-color: #707070;
+    border-bottom-color: #808080;
     border-bottom-width: 2px;
     border-left-style: solid;
-    border-left-color: #707070;
+    border-left-color: #808080;
     border-left-width: 2px;
     background-color: inherit;
 }
@@ -146,4 +161,29 @@ h2.arrowup {
 .picto {
     float: left;
     margin: 0 5px;
+}
+.pageNav input {
+    width: 120px;
+}
+.pageNave > p {
+    width: 150px;
+    text-align: center;
+}
+.pageNav {
+    padding-top: 20px;
+}
+input[type="submit"] {
+    width: 120px;
+    float: right;
+    margin-left: 5px;
+}
+input#previous,
+input#firstPage {
+    float: left;
+    margin-right: 5px;
+}
+input#next,
+input#lastPage {
+    float: right;
+    margin-left: 5px;
 }

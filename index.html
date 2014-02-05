@@ -23,7 +23,6 @@
         <article class="gloablSearch">
             <h2>Simple search</h2>
             <form id="globalSubmit">
-                <label for="globalSearch">Complete :</label>
                 <input type="text" name="globalSearch" id="globalSearch" placeholder="Type any term of search">
                 <input type="submit" value="Search">
             </form>
@@ -99,13 +98,16 @@
                 <p>results per page</p>
             </article>
             <article class="clear pageNav">
+                <p>
+                    <label for="goPage">Go to page</label>
+                    <select id="goPage"></select>
+                    <span class="nbPages">/--</span>
+                </p>
                 <input id="firstPage" type="button" value="First page">
                 <input id="previous" type="button" value="Previous">
-                <label for="goPage">Go to page</label>
-                <select id="goPage"></select>
-                <p class="nbPages">/--</p>
                 <input id="next" type="button" value="Next">
                 <input id="lastPage" type="button" value="Last page">
+                <div class="clear"></div>
             </article>
         </nav>
     </section>
