@@ -107,16 +107,16 @@ li {
 .file > a {
     text-decoration: none;
 }
-.advancedSearch h1 {
+.advancedSearch h2 {
     cursor: pointer;
 }
-h1.arrowdown {
+h2.arrowdown {
     background-image: url("../img/icon_16958.png");
     background-position: right;
     background-size: contain;
     background-repeat: no-repeat;
 }
-h1.arrowup {
+h2.arrowup {
     background-image: url(../img/icon_16981.png);
     background-position: right;
     background-size: contain;

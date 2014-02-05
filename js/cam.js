@@ -15,7 +15,7 @@ $(function () {
         }
     })
     toggleSearch();
-    $('.advancedSearch').on('click', 'h1', toggleSearch);
+    $('.advancedSearch').on('click', 'h2', toggleSearch);
     $('#goPage').on('change', goToPage)
 })
 
@@ -34,7 +34,7 @@ function researchGlobal(start, rows) {
         request['start'] = start;
         request['rows'] = rows;
         request['wt'] = 'json';
-        if ($('h1.arrowup') && ($('#role').val() !== '')) {
+        if ($('h2.arrowup') && ($('#role').val() !== '')) {
             var visible = $('.subfacet select:visible')
             if (visible.val() !== '') {
                 request['q'] = '+global:' + valueField + ' +role:' + $('#role').val() + ' +' + visible.attr('name') + ':' + visible.val();
@@ -60,9 +60,9 @@ function researchGlobal(start, rows) {
 
 function toggleSearch() {
     $('#advancedSubmit').toggle();
-    if ($('.advancedSearch > h1').hasClass('arrowdown')) {
-        $('.advancedSearch > h1').removeClass().addClass('arrowup');
+    if ($('.advancedSearch > h2').hasClass('arrowdown')) {
+        $('.advancedSearch > h2').removeClass().addClass('arrowup');
     } else {
-        $('.advancedSearch > h1').removeClass().addClass('arrowdown');
+        $('.advancedSearch > h2').removeClass().addClass('arrowdown');
     }
 }
