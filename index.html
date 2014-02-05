@@ -57,13 +57,30 @@
                     </select>
                 </p>
                 <input type="submit" value="Search">
-                <h3>Order results</h3>
+                <h3 class="suborder">Order results</h3>
                 <p class="suborder person">
-                <label for="sortPerson">By:</label>
-                <select name="sortPerson">
-                    <option value="lastname">Lastname</option>
-                    <option value="size">Height</option>
-                </select>
+                    <label for="sortPerson">By:</label>
+                    <select name="sortPerson">
+                        <option value="">Choose...</option>
+                        <option value="lastname">Lastname</option>
+                        <option value="size">Height</option>
+                    </select>
+                </p>
+                <p class="suborder city">
+                    <label for="sortCity">By:</label>
+                    <select name="sortCity">
+                        <option value="">Choose...</option>
+                        <option value="city.name">City name</option>
+                        <option value="city.code">City code</option>
+                    </select>
+                </p>
+                <p class="suborder media">
+                    <label for="sortMedia">By:</label>
+                    <select name="sortMedia">
+                        <option value="">Choose...</option>
+                        <option value="title">Title</option>
+                        <option value="filesize">Filesize</option>
+                    </select>
                 </p>
             </form>
         </article>

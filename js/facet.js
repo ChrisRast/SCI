@@ -15,13 +15,13 @@ function getfacet(field) {
                 select = $('#role')
                 break;
             case 'language':
-                select = $('p.person select')
+                select = $('.subfacet.person select')
                 break;
             case 'city.region.code':
-                select = $('p.city select')
+                select = $('.subfacet.city select')
                 break;
             default:
-                select = $('p.media select')
+                select = $('.subfacet.media select')
                 break;
             }
             select.empty();
@@ -53,18 +53,18 @@ function changeFacet() {
         break;
     case "person":
         $('p.subfacet').hide();
-        $('p.person').fadeIn();
+        $('.subfacet.person').fadeIn();
         break;
     case "city":
         $('p.subfacet').hide();
-        $('p.city').fadeIn();
+        $('.subfacet.city').fadeIn();
         break;
     default:
         $('p.subfacet').hide();
-        $('p.media').fadeIn();
+        $('.subfacet.media').fadeIn();
         break;
     }
-    $(this).trigger("endChangeFacet", [field])
+    $('#role').trigger("endChangeFacet", [field])
 }
 
 function getSubfacet(field) {

@@ -5,13 +5,22 @@ $(function () {
         var rows = $('#display').val()
         researchGlobal('0', rows)
     });
+    //recherche les facet de base
     getfacet('role');
+    //Cache des elements au chargement
     $('p.subfacet').hide();
-    $('#role').on('change', changeFacet)
+    $('.suborder').hide();
+    //Surveille le changement sur #role
+    $('#advancedSubmit').on('change', '#role', function () {
+        changeFacet();
+        toggleSort();
+    })
     $('#display').on('change', displayRow)
     $('#role').on('endChangeFacet', function (event, field) {
         if (field !== '') {
             getSubfacet(field);
+        } else {
+            console.log('le field est vide')
         }
     })
     toggleSearch();
@@ -34,15 +43,13 @@ function researchGlobal(start, rows) {
         request['start'] = start;
         request['rows'] = rows;
         request['wt'] = 'json';
+        request['q'] = '+global:' + valueField;
         if ($('h2.arrowup') && ($('#role').val() !== '')) {
+            request['q'] += ' +role:' + $('#role').val();
             var visible = $('.subfacet select:visible')
             if (visible.val() !== '') {
-                request['q'] = '+global:' + valueField + ' +role:' + $('#role').val() + ' +' + visible.attr('name') + ':' + visible.val();
-            } else {
-                request['q'] = '+global:' + valueField + ' +role:' + $('#role').val();
+                request['q'] += ' +' + visible.attr('name') + ':' + visible.val();
             }
-        } else {
-            request['q'] = '+global:' + valueField;
         }
         // la requête JSON dans global
         $.getJSON(url, request, function (json) {
@@ -64,5 +71,29 @@ function toggleSearch() {
         $('.advancedSearch > h2').removeClass().addClass('arrowup');
     } else {
         $('.advancedSearch > h2').removeClass().addClass('arrowdown');
+    }
+}
+
+function toggleSort() {
+    var role = $('#role option:selected').val();
+    switch (role) {
+    case '':
+        $('.suborder').hide();
+        break;
+    case 'person':
+        $('.suborder').hide();
+        $('h3.suborder').fadeIn();
+        $('.suborder.person').fadeIn();
+        break;
+    case 'city':
+        $('.suborder').hide();
+        $('h3.suborder').fadeIn();
+        $('.suborder.city').fadeIn();
+        break;
+    default:
+        $('.suborder').hide();
+        $('h3.suborder').fadeIn();
+        $('.suborder.media').fadeIn();
+        break;
     }
 }
