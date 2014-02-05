@@ -12,6 +12,12 @@ body {
 }
 input {
     background-color: white;
+    border: 1px solid #808080;
+    width: 120px;
+}
+select {
+    background-color: white;
+    border: 1px solid #808080;
 }
 footer {
     clear: both;
@@ -29,6 +35,9 @@ footer {
     border-bottom-color: #707070;
     border-bottom-width: 2px;
     background-color: inherit;
+}
+#globalSearch {
+    width: calc(100% - 209px);
 }
 li {
     list-style: none;
@@ -55,6 +64,9 @@ li {
 #advancedSubmit > p {
     display: inline-block;
     margin: 0%;
+}
+#advancedSubmit input {
+    float: right;
 }
 .subfacet {
     margin-left: 3%;
