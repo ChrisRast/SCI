@@ -14,6 +14,7 @@ $(function () {
     $('#advancedSubmit').on('change', '#role', function () {
         changeFacet();
         toggleSort();
+        researchGlobal('0', $('#display option:selected').val().toString())
     })
     $('#display').on('change', displayRow)
     $('#role').on('endChangeFacet', function (event, field) {
@@ -56,9 +57,13 @@ function researchGlobal(start, rows) {
             var result = json.response.docs
             // pour chaque résultat, on lance la fonction qui générer le html
             $('.right > ul').empty();
-            $.each(result, function (i, e) {
-                buildHTMLDisplayResult(e);
-            })
+            if (result.length != 0) {
+                $.each(result, function (i, e) {
+                    buildHTMLDisplayResult(e);
+                })
+            } else {
+                $('.right > ul').append($('<li>').append($('<p>').text('There is no result to display. Try another term.')))
+            }
             viewNumResults(json);
             displayNbPages(json)
         });

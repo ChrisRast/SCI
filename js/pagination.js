@@ -9,10 +9,10 @@ function displayRow() {
 function viewNumResults(json) {
     var numResults = json.response.numFound;
     if (numResults == 0) {
-        $('p.numResults').text('There are no result');
+        $('p.numResults').text('There is no result for this search.');
     } else {
         if (numResults == 1) {
-            $('p.numResults').text('There is 1 result');
+            $('p.numResults').text('There is 1 result.');
         } else {
             var textResults = 'There are ' + numResults + ' results';
             $('p.numResults').text(textResults);
