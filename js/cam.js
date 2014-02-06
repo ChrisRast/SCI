@@ -26,7 +26,8 @@ $(function () {
     })
     toggleSearch();
     $('.advancedSearch').on('click', 'h2', toggleSearch);
-    $('#goPage').on('change', goToPage)
+    $('#goPage').on('change', goToPage);
+    //$('#firstPage').on('change', firstPage);
 })
 
 function researchGlobal(start, rows) {
@@ -65,7 +66,9 @@ function researchGlobal(start, rows) {
                 $('.right > ul').append($('<li>').append($('<p>').text('There is no result to display. Try another term.')))
             }
             viewNumResults(json);
-            displayNbPages(json)
+            displayNbPages(json);
+            lastPage(json);
+            firstPage();
         });
     }
 }

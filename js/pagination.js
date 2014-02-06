@@ -24,8 +24,8 @@ function displayNbPages(json) {
     var numResults = json.response.numFound;
     var start = json.response.start;
     var displayValues = $('#display').val();
-    var nbPages = Math.ceil(numResults / displayValues)
-    $('.nbPages').text('/' + nbPages)
+    var nbPages = Math.ceil(numResults / displayValues);
+    $('.nbPages').text('/' + nbPages);
     $('#goPage').empty();
     for (var i = 0; i < nbPages; i++) {
         if ((start / displayValues) == i) {
@@ -41,9 +41,9 @@ function goToPage() {
     var displayValues = $('#display').val();
     // récupère la page voulue
     var pageToGo = $('#goPage').val();
-
+    
     var start = displayValues * pageToGo;
-    researchGlobal(start, displayValues)
+    researchGlobal(start, displayValues);
 }
 
 // Page précédente
@@ -57,15 +57,10 @@ function previous() {
 // Page suivante
 function next() {
     $('#next').click(function () {
-        console.log('Page suivante !');
-
-        // aimerait avoir le résultat de ces fonctions...
-        var result = viewNumResults;
-        var display = displayRow;
+        var displayValues = $('#display').val();
         // calcul le nombre restant de résultat à afficher
-        var calculEcart = result - display;
-        // récupérer le start
-        console.log(calculEcart);
+        var start = '0';
+        researchGlobal(start,displayValues);
 
     });
 }
@@ -73,15 +68,21 @@ function next() {
 // 1ère page
 function firstPage() {
     $('#firstPage').click(function () {
-        console.log('Vous êtes sur la première page !');
-
+        // récupère la valeur du nombre de page de résultat
+        var displayValues = $('#display').val();
+         // passage des paramètres à la fonction avec start = 0
+        researchGlobal('0', displayValues);
     });
 }
 
 // Dernière page
-function lastPage() {
+function lastPage(json) {
     $('#lastPage').click(function () {
-        console.log('Vous êtes sur la dernière page !');
-
+        var numResults = json.response.numFound;
+        var displayValues = $('#display').val();
+        var nbPages = Math.ceil(numResults / displayValues);
+        var start = nbPages * displayValues - displayValues;
+        // passage des paramètres à la fonction
+        researchGlobal(start, displayValues);
     });
 }
