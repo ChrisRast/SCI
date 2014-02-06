@@ -57,11 +57,14 @@ function previous() {
 // Page suivante
 function next() {
     $('#next').click(function () {
+        var numResults = json.response.numFound;
+        var start = json.response.start;
         var displayValues = $('#display').val();
+        
         // calcul le nombre restant de résultat à afficher
-        var start = '0';
+        //var start = ;
+        
         researchGlobal(start,displayValues);
-
     });
 }
 
