@@ -8,6 +8,12 @@ body {
 p {
     margin: 0;
 }
+h1 {
+    margin: 0.8em 0;
+}
+h2 {
+    margin: 0.6em 0;
+}
 .search {
     width: 49.5%;
 }
@@ -102,7 +108,7 @@ li {
     display: inline-block;
     float: left;
     margin: 0 0 5px;
-    width: calc(100% - 198px);
+    width: calc(100% - 200px);
 }
 .result > ul > li > .data {
     display: inline-block;
@@ -163,6 +169,7 @@ h2.arrowup {
 .picto {
     float: left;
     margin: 0 5px;
+    border:1px solid black;
 }
 .pageNav input {
     width: 120px;

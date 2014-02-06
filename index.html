@@ -21,7 +21,7 @@
 
     <section class="search left">
         <article class="gloablSearch">
-            <h2>Simple search</h2>
+            <h2>Simple</h2>
             <form id="globalSubmit">
                 <input type="text" name="globalSearch" id="globalSearch" placeholder="Type any term of search">
                 <input type="submit" value="Search">
@@ -29,7 +29,7 @@
         </article>
         <article class="advancedSearch">
             <!-- Remplir avec le javascript -->
-            <h2>Advanced search</h2>
+            <h2>Advanced</h2>
             <form id="advancedSubmit">
                 <p>
                     <label for="role">Select a role :</label>
@@ -79,6 +79,12 @@
                         <option value="">Choose...</option>
                         <option value="title">Title</option>
                         <option value="filesize">Filesize</option>
+                    </select>
+                </p>
+                <p class="order">
+                    <select>
+                        <option value="asc">Ascendant</option>
+                        <option value="desc">Descendant</option>
                     </select>
                 </p>
             </form>

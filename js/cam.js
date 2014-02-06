@@ -7,9 +7,10 @@ $(function () {
     });
     //recherche les facet de base
     getfacet('role');
+    //change l'affichage de la recherche avancée
+    toggleSearch();
     //Cache des elements au chargement
-    $('p.subfacet').hide();
-    $('.suborder').hide();
+    $('p.subfacet, .suborder, .order, .pageNav').hide();
     //Surveille le changement sur #role
     $('#advancedSubmit').on('change', '#role', function () {
         changeFacet();
@@ -20,11 +21,8 @@ $(function () {
     $('#role').on('endChangeFacet', function (event, field) {
         if (field !== '') {
             getSubfacet(field);
-        } else {
-            console.log('le field est vide')
         }
     })
-    toggleSearch();
     $('.advancedSearch').on('click', 'h2', toggleSearch);
     $('#goPage').on('change', goToPage);
     //$('#firstPage').on('change', firstPage);
@@ -41,18 +39,26 @@ function researchGlobal(start, rows) {
         var url = "http://localhost:8983/solr/select";
         var request = {};
         // les paramètres de l'objet request{}
-        request['sort'] = 'id asc'; // a voir après 
+        request['sort'] = 'id asc';
         request['start'] = start;
         request['rows'] = rows;
         request['wt'] = 'json';
         request['q'] = '+global:' + valueField;
-        if ($('h2.arrowup') && ($('#role').val() !== '')) {
+        //Vérifie que les champs sont activés et récupère les valeurs au besoin
+        if ($('.advancedSearch > h2').hasClass('arrowup') && ($('#role').val() !== '')) {
+            //Change la requête avec les facet
             request['q'] += ' +role:' + $('#role').val();
             var visible = $('.subfacet select:visible')
+            //Change requete avec subfact
             if (visible.val() !== '') {
                 request['q'] += ' +' + visible.attr('name') + ':' + visible.val();
             }
+            //change ordre d'affichage des résultats selon sélectionnés
+            if ($('.suborder select').filter(':visible').val() != '') {
+                request['sort'] = $('.suborder select:visible').val() + ' ' + $('.order select').val();
+            }
         }
+
         // la requête JSON dans global
         $.getJSON(url, request, function (json) {
             var result = json.response.docs
@@ -62,7 +68,9 @@ function researchGlobal(start, rows) {
                 $.each(result, function (i, e) {
                     buildHTMLDisplayResult(e);
                 })
+                $('.pageNav').show();
             } else {
+                $('.pageNav').hide();
                 $('.right > ul').append($('<li>').append($('<p>').text('There is no result to display. Try another term.')))
             }
             viewNumResults(json);
@@ -86,22 +94,19 @@ function toggleSort() {
     var role = $('#role option:selected').val();
     switch (role) {
     case '':
-        $('.suborder').hide();
+        $('.suborder, order').hide();
         break;
     case 'person':
         $('.suborder').hide();
-        $('h3.suborder').fadeIn();
-        $('.suborder.person').fadeIn();
+        $('h3.suborder, .suborder.person, .order').fadeIn();
         break;
     case 'city':
         $('.suborder').hide();
-        $('h3.suborder').fadeIn();
-        $('.suborder.city').fadeIn();
+        $('h3.suborder, .suborder.city, .order').fadeIn();
         break;
     default:
         $('.suborder').hide();
-        $('h3.suborder').fadeIn();
-        $('.suborder.media').fadeIn();
+        $('h3.suborder, .suborder.media, .order').fadeIn();
         break;
     }
 }
