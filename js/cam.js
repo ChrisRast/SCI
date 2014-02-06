@@ -98,7 +98,7 @@ function toggleSort() {
     var role = $('#role option:selected').val();
     switch (role) {
     case '':
-        $('.suborder, order').hide();
+        $('.suborder, .order').hide();
         break;
     case 'person':
         $('.suborder').hide();
