@@ -25,6 +25,9 @@ $(function () {
     })
     $('.advancedSearch').on('click', 'h2', toggleSearch);
     $('#goPage').on('change', goToPage);
+    $('.result').on('click','.title', function () {
+        $(this).siblings('.data, .file').toggle('100');
+    })
     //$('#firstPage').on('change', firstPage);
 })
 
@@ -69,6 +72,7 @@ function researchGlobal(start, rows) {
                     buildHTMLDisplayResult(e);
                 })
                 $('.pageNav').show();
+                $('div.data, div.file').toggle();
             } else {
                 $('.pageNav').hide();
                 $('.right > ul').append($('<li>').append($('<p>').text('There is no result to display. Try another term.')))
