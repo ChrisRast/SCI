@@ -48,20 +48,21 @@ function goToPage() {
 
 // Page précédente
 function previous() {
-
-        console.log('Page précédente !');
-        // récupération du value de l'option séléctionnée
-        var numRecup = $('#goPage option:selected').attr('value');
-        var numRecupInt = parseInt(numRecup);
-        var previ0us = numRecupInt - 1;
-         // affiche le numéro de la page suivante dans le menu déroulant
-        $('#goPage option[value=' + previ0us + ']').attr("selected", "selected");
-        var displayValues = $('#display').val();
-        // met à jour le start
-        var start = displayValues * previ0us;
-        researchGlobal(start, displayValues);
-
-        // Faut-il désactiver le bouton previous lorsque le nombre de page minimal est atteint ?!
+    // récupération du value de l'option séléctionnée
+    var numRecup = $('#goPage option:selected').attr('value');
+    // parser de String en Int
+    var numRecupInt = parseInt(numRecup);
+    var previ0us = numRecupInt - 1;
+    // affiche le numéro de la page suivante dans le menu déroulant
+    $('#goPage option[value=' + previ0us + ']').attr("selected", "selected");
+    var displayValues = $('#display').val();
+    // désactiv le bouton previous quand la page actuelle est la première
+    if (previ0us == 0) {
+        $("input[type=submit]").attr("disabled", "disabled");
+    }
+    // met à jour le start
+    var start = displayValues * previ0us;
+    researchGlobal(start, displayValues);
 }
 
 // Page suivante
@@ -69,17 +70,21 @@ function next() {
     $('#next').click(function () {
         // récupération du value de l'option séléctionnée
         var numRecup = $('#goPage option:selected').attr('value');
+         // parser de String en Int
         var numRecupInt = parseInt(numRecup);
         var next = numRecupInt + 1;
         // affiche le numéro de la page suivante dans le menu déroulant
         $('#goPage option[value=' + next + ']').attr("selected", "selected");
         var displayValues = $('#display').val();
+        var numResults = json.response.numFound;
+        var nbPages = Math.ceil(numResults / displayValues);
+        // désactive le bouton next quand la page actuelle est la dernière
+        if (next == nbPages) {
+            $("input[type=submit]").attr("disabled", "disabled");
+        }
         // met à jour le start
         var start = displayValues * next;
         researchGlobal(start, displayValues);
-        
-        // Faut-il désactiver le bouton next lorsque le nombre de page maximal est atteint ?!
-        
     });
 }
 
