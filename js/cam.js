@@ -27,6 +27,11 @@ $(function () {
     $('#goPage').on('change', goToPage);
     $('.result').on('click','.title', function () {
         $(this).siblings('.data, .file').toggle('100');
+        if($(this).hasClass('active')){
+            $(this).removeClass('active')
+        } else {
+        $(this).addClass('active')
+        }
     })
     //$('#firstPage').on('change', firstPage);
 })
