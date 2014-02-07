@@ -30,6 +30,7 @@ input {
 select {
     background-color: white;
     border: 1px solid #808080;
+    cursor:  pointer;
 }
 footer {
     clear: both;
@@ -80,6 +81,7 @@ li {
     border-left-color: #808080;
     border-left-width: 2px;
     background-color: inherit;
+    cursor:  pointer;
 }
 .title > span {
     display: inline;
@@ -183,14 +185,17 @@ input[type="submit"] {
     width: 120px;
     float: right;
     margin-left: 5px;
+    cursor:  pointer;
 }
 input#previous,
 input#firstPage {
     float: left;
     margin-right: 5px;
+    cursor:  pointer;
 }
 input#next,
 input#lastPage {
     float: right;
     margin-left: 5px;
+    cursor:  pointer;
 }
