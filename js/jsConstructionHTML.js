@@ -10,7 +10,9 @@ function buildHTMLDisplayResult(result) {
         var title = $('<div>').addClass('title').append(picto).append($('<label>').text("Name: ")).append(cityName)
         var data = $('<div>').addClass('data').append($('<label>').text("City code: ")).append(cityCode)
             .append($('<label>').text("City region: ")).append(cityRegionName)
-        li.append(title).append(data)
+        var url = 'http://maps.googleapis.com/maps/api/staticmap?center='+result["city.name"]+','+result["city.code"]+','+result["city.region.name"]+'&size=300x121&zoom=13&maptype=roadmap&sensor=false'
+        var map = $('<div>').addClass('map').append($('<img>').attr('src', url))
+        li.append(title).append(data).append(map)
             .appendTo(list)
 
     } else if (result.role === "audio") {

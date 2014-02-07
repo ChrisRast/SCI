@@ -27,7 +27,8 @@ input {
     border: 1px solid #808080;
     padding: 0;
 }
-input[type='button'], input[type='submit'] {
+input[type='button'],
+input[type='submit'] {
     cursor: pointer;
 }
 select {
@@ -119,6 +120,7 @@ li {
     display: inline-block;
     padding: 5px 0 0 60px;
     width: 50%;
+    vertical-align: top;
 }
 .result > ul > li > .title {
     display: inline-block;
@@ -148,6 +150,12 @@ li {
 }
 .file > a {
     text-decoration: none;
+}
+.map {
+    display: inline-block;
+    position: relative;
+    top: -66px;
+    float:right;
 }
 .advancedSearch h2 {
     cursor: pointer;
@@ -207,5 +215,5 @@ input:disabled {
     background-color: #808080;
     color: black;
     border: 1px dashed black;
-    cursor:not-allowed;
+    cursor: not-allowed;
 }
