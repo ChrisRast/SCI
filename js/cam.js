@@ -81,6 +81,8 @@ function researchGlobal(start, rows) {
             displayNbPages(json);
             lastPage(json);
             firstPage();
+            next();
+            previous();
         });
     }
 }

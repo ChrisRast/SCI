@@ -25,7 +25,7 @@ function displayNbPages(json) {
     var start = json.response.start;
     var displayValues = $('#display').val();
     var nbPages = Math.ceil(numResults / displayValues);
-    $('.nbPages').text('/' + nbPages);
+    $('.nbPages').text('/ ' + nbPages);
     $('#goPage').empty();
     for (var i = 0; i < nbPages; i++) {
         if ((start / displayValues) == i) {
@@ -41,7 +41,7 @@ function goToPage() {
     var displayValues = $('#display').val();
     // récupère la page voulue
     var pageToGo = $('#goPage').val();
-    
+    console.log(pageToGo);
     var start = displayValues * pageToGo;
     researchGlobal(start, displayValues);
 }
@@ -50,6 +50,18 @@ function goToPage() {
 function previous() {
     $('#previous').click(function () {
         console.log('Page précédente !');
+        // récupération du value de l'option séléctionnée
+        var numRecup = $('#goPage option:selected').attr('value');
+        var numRecupInt = parseInt(numRecup);
+        var previ0us = numRecupInt - 1;
+         // affiche le numéro de la page suivante dans le menu déroulant
+        $('#goPage option[value=' + previ0us + ']').attr("selected", "selected");
+        var displayValues = $('#display').val();
+        // met à jour le start
+        var start = displayValues * previ0us;
+        researchGlobal(start, displayValues);
+
+        // Faut-il désactiver le bouton previous lorsque le nombre de page minimal est atteint ?!
 
     });
 }
@@ -57,14 +69,19 @@ function previous() {
 // Page suivante
 function next() {
     $('#next').click(function () {
-        var numResults = json.response.numFound;
-        var start = json.response.start;
+        // récupération du value de l'option séléctionnée
+        var numRecup = $('#goPage option:selected').attr('value');
+        var numRecupInt = parseInt(numRecup);
+        var next = numRecupInt + 1;
+        // affiche le numéro de la page suivante dans le menu déroulant
+        $('#goPage option[value=' + next + ']').attr("selected", "selected");
         var displayValues = $('#display').val();
+        // met à jour le start
+        var start = displayValues * next;
+        researchGlobal(start, displayValues);
         
-        // calcul le nombre restant de résultat à afficher
-        //var start = ;
+        // Faut-il désactiver le bouton next lorsque le nombre de page maximal est atteint ?!
         
-        researchGlobal(start,displayValues);
     });
 }
 
@@ -73,7 +90,7 @@ function firstPage() {
     $('#firstPage').click(function () {
         // récupère la valeur du nombre de page de résultat
         var displayValues = $('#display').val();
-         // passage des paramètres à la fonction avec start = 0
+        // passage des paramètres à la fonction avec start = 0
         researchGlobal('0', displayValues);
     });
 }
