@@ -27,6 +27,9 @@ input {
     border: 1px solid #808080;
     padding: 0;
 }
+input[type='button'], input[type='submit'] {
+    cursor: pointer;
+}
 select {
     background-color: white;
     border: 1px solid #808080;
@@ -189,17 +192,20 @@ input[type="submit"] {
     width: 120px;
     float: right;
     margin-left: 5px;
-    cursor: pointer;
 }
 input#previous,
 input#firstPage {
     float: left;
     margin-right: 5px;
-    cursor: pointer;
 }
 input#next,
 input#lastPage {
     float: right;
     margin-left: 5px;
-    cursor: pointer;
+}
+input:disabled {
+    background-color: #808080;
+    color: black;
+    border: 1px dashed black;
+    cursor:not-allowed;
 }

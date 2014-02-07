@@ -34,6 +34,9 @@ $(function () {
         }
     })
     $('#previous').click(previous);
+    $('#lastPage').click(lastPage)
+    $('#next').click(next);
+    $('#firstPage').click(firstPage);
 })
 
 function researchGlobal(start, rows) {
@@ -84,9 +87,18 @@ function researchGlobal(start, rows) {
             }
             viewNumResults(json);
             displayNbPages(json);
-            lastPage(json);
-            firstPage();
-            next();
+
+            if (json.response.start == '0') {
+                $('#firstPage, #previous').prop('disabled', true)
+                $('#lastPage, #next').prop('disabled', false)
+            } else if (json.response.start >= (json.response.numFound - $('#display').val())) {
+                $('#lastPage, #next').prop('disabled', true)
+                $('#firstPage, #previous').prop('disabled', false)
+            } else {
+                $('#lastPage, #next').prop('disabled', false)
+                $('#firstPage, #previous').prop('disabled', false)
+            }
+
         });
     }
 }

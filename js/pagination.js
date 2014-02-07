@@ -29,7 +29,7 @@ function displayNbPages(json) {
     $('#goPage').empty();
     for (var i = 0; i < nbPages; i++) {
         if ((start / displayValues) == i) {
-            $('#goPage').append($('<option>').val(i).text(i + 1).attr('selected', true))
+            $('#goPage').append($('<option>').val(i).text(i + 1).prop('selected', true))
         } else {
             $('#goPage').append($('<option>').val(i).text(i + 1))
         }
@@ -41,7 +41,6 @@ function goToPage() {
     var displayValues = $('#display').val();
     // récupère la page voulue
     var pageToGo = $('#goPage').val();
-    console.log(pageToGo);
     var start = displayValues * pageToGo;
     researchGlobal(start, displayValues);
 }
@@ -49,63 +48,34 @@ function goToPage() {
 // Page précédente
 function previous() {
     // récupération du value de l'option séléctionnée
-    var numRecup = $('#goPage option:selected').attr('value');
-    // parser de String en Int
-    var numRecupInt = parseInt(numRecup);
-    var previ0us = numRecupInt - 1;
-    // affiche le numéro de la page suivante dans le menu déroulant
-    $('#goPage option[value=' + previ0us + ']').attr("selected", "selected");
+    var numRecup = $('#goPage option:selected').val();
     var displayValues = $('#display').val();
-    // désactiv le bouton previous quand la page actuelle est la première
-    if (previ0us == 0) {
-        $("input[type=submit]").attr("disabled", "disabled");
-    }
     // met à jour le start
-    var start = displayValues * previ0us;
+    var start = displayValues * (parseInt(numRecup) - 1);
     researchGlobal(start, displayValues);
 }
 
 // Page suivante
 function next() {
-    $('#next').click(function () {
-        // récupération du value de l'option séléctionnée
-        var numRecup = $('#goPage option:selected').attr('value');
-         // parser de String en Int
-        var numRecupInt = parseInt(numRecup);
-        var next = numRecupInt + 1;
-        // affiche le numéro de la page suivante dans le menu déroulant
-        $('#goPage option[value=' + next + ']').attr("selected", "selected");
-        var displayValues = $('#display').val();
-        var numResults = json.response.numFound;
-        var nbPages = Math.ceil(numResults / displayValues);
-        // désactive le bouton next quand la page actuelle est la dernière
-        if (next == nbPages) {
-            $("input[type=submit]").attr("disabled", "disabled");
-        }
-        // met à jour le start
-        var start = displayValues * next;
-        researchGlobal(start, displayValues);
-    });
+    // récupération du value de l'option séléctionnée
+    var numRecup = $('#goPage option:selected').val();
+    var displayValues = $('#display').val();
+    var start = displayValues * (parseInt(numRecup) + 1);
+    researchGlobal(start, displayValues);
 }
 
 // 1ère page
 function firstPage() {
-    $('#firstPage').click(function () {
-        // récupère la valeur du nombre de page de résultat
-        var displayValues = $('#display').val();
-        // passage des paramètres à la fonction avec start = 0
-        researchGlobal('0', displayValues);
-    });
+    // récupère la valeur du nombre de page de résultat
+    var displayValues = $('#display').val();
+    // passage des paramètres à la fonction avec start = 0
+    researchGlobal('0', displayValues);
 }
 
 // Dernière page
-function lastPage(json) {
-    $('#lastPage').click(function () {
-        var numResults = json.response.numFound;
-        var displayValues = $('#display').val();
-        var nbPages = Math.ceil(numResults / displayValues);
-        var start = nbPages * displayValues - displayValues;
-        // passage des paramètres à la fonction
-        researchGlobal(start, displayValues);
-    });
+function lastPage() {
+    var lastPage = $('#goPage option').last().val()
+    var displayValues = $('#display').val();
+    // passage des paramètres à la fonction        
+    researchGlobal(lastPage * displayValues, displayValues);
 }
