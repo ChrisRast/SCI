@@ -25,15 +25,15 @@ $(function () {
     })
     $('.advancedSearch').on('click', 'h2', toggleSearch);
     $('#goPage').on('change', goToPage);
-    $('.result').on('click','.title', function () {
+    $('.result').on('click', '.title', function () {
         $(this).siblings('.data, .file').toggle('100');
-        if($(this).hasClass('active')){
+        if ($(this).hasClass('active')) {
             $(this).removeClass('active')
         } else {
-        $(this).addClass('active')
+            $(this).addClass('active')
         }
     })
-    //$('#firstPage').on('change', firstPage);
+    $('#previous').click(previous);
 })
 
 function researchGlobal(start, rows) {
@@ -87,7 +87,6 @@ function researchGlobal(start, rows) {
             lastPage(json);
             firstPage();
             next();
-            previous();
         });
     }
 }

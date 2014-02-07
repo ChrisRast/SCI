@@ -48,7 +48,7 @@ function goToPage() {
 
 // Page précédente
 function previous() {
-    $('#previous').click(function () {
+
         console.log('Page précédente !');
         // récupération du value de l'option séléctionnée
         var numRecup = $('#goPage option:selected').attr('value');
@@ -62,8 +62,6 @@ function previous() {
         researchGlobal(start, displayValues);
 
         // Faut-il désactiver le bouton previous lorsque le nombre de page minimal est atteint ?!
-
-    });
 }
 
 // Page suivante
